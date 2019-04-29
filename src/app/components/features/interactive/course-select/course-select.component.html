@@ -1,0 +1,9 @@
+<div class="btn-group" *ngIf="courseList">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    {{ currentCourse.name }}
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item hole-select-item" *ngFor="let course of courseList; index as i;" (click)="courseSelectHandle(i+1)">{{course.name}}</a>
+  </div>
+</div>
+  

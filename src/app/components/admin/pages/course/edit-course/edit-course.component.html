@@ -1,0 +1,26 @@
+
+<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+  <div class="inner-adjust">
+    <div class="golf-course-wrapper" *ngIf="course">
+      <form [formGroup]="courseForm" [attr.data-course-id]="course.id" (ngSubmit)="saveCourse()">
+    
+        <div class="form-group">
+          <label for="title">Course Name</label>
+          <input formControlName="title" type="text" class="form-control" id="title" aria-describedby="titlelHelp" placeholder="Enter course title">
+          <small id="titleHelp" class="form-text text-muted">This value is the title/name of the golf course.</small>
+        </div>
+      
+        <div class="form-group">
+          <label for="description">Course Description</label>
+          <input formControlName="description" type="text" class="form-control" id="description" aria-describedby="descriptionlHelp" placeholder="Enter course description">
+          <small id="descriptionHelp" class="form-text text-muted">This value is the text description of the golf course.</small>
+        </div>
+
+        <div class="form-group">
+          <input type="submit" value="Save Course" class="btn btn-primary">
+        </div>
+      </form>
+      <app-edit-address [courseId]="course.id"></app-edit-address>
+    </div>
+  </div>
+</main>

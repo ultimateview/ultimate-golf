@@ -1,0 +1,51 @@
+.video-timeline{
+    position: relative;
+}
+ul.video-timeline{
+    list-style: none;
+    /* border: 1px solid #FF0000; */
+    height: 100px;
+    line-height: 12px;
+}
+ul.video-timeline > li{
+    display: inline-block;
+    position: absolute;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    text-align: center;
+    width: 22px;
+    height: 100px;
+    /* background-image: url('../../../../../assets/golf/icons/poi-marker.png'); */
+    background-image: url('../../../../../assets/golf/icons/marker-generic-white.png');
+    background-position: 1px 15px;
+    background-repeat: no-repeat;
+    font-weight: bold;
+    color: #000;
+    padding-top: 38px;
+    border-bottom: 2px none;
+}
+
+ul.video-timeline > li.active-timeline-index{
+    border-bottom: 2px solid green;
+}
+
+ul.video-timeline > li:nth-last-child(2){
+    background-image: url('../../../../../assets/golf/icons/poi-marker.png');
+    background-position: 1px 34px;
+    color: #FFF;
+}
+
+ul.video-timeline > li:last-child{
+    background-image: url('../../../../../assets/golf/icons/flag-sm.png');
+    background-position: 0 34px;
+}
+
+ul.video-timeline > li:first-child{
+    background-image: url('../../../../../assets/golf/icons/tee-sm.png');
+    background-position: 0 34px;
+}
+
+ul.video-timeline > li:last-child .marker-label,
+ul.video-timeline > li:first-child .marker-label{
+    display: none;
+}

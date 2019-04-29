@@ -1,0 +1,9 @@
+.max-width-1024 { 
+    max-width: 1024px; 
+    margin: 0 auto;
+}
+
+.embed-responsive{
+    width: 100%;
+    min-height: 500px;
+}

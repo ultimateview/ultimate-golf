@@ -1,0 +1,36 @@
+<form [formGroup]="addressForm" [attr.data-course-id]="courseId" (ngSubmit)="saveAddress()">
+  <div class="form-group">
+      <label for="street1">Street</label>
+      <input formControlName="street1" type="text" class="form-control" id="street1" placeholder="Enter street address">
+    </div>
+  
+    <div class="form-group">
+      <label for="street2">Street 2 (optional)</label>
+      <input formControlName="street2" type="text" class="form-control" id="street2" placeholder="">
+    </div>
+  <div class="row">
+    <div class="col-md-7">
+      <div class="form-group">
+        <label for="city">City</label>
+        <input formControlName="city" type="text" class="form-control" id="city" placeholder="City">
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="form-group">
+        <label for="state">State</label>
+        <input formControlName="state" type="text" class="form-control" id="state" placeholder="State">
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="form-group">
+        <label for="zip">Zip</label>
+        <input formControlName="zip" type="text" class="form-control" id="zip" placeholder="Zip Code">
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <input type="submit" value="Save Address" class="btn btn-primary">
+  </div>
+  
+</form>

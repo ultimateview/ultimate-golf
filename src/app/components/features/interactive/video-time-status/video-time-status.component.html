@@ -1,0 +1,6 @@
+<div class="video-time-status" *ngIf="videoTime">
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" [style.width.%]="styleWidth" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+  <!-- Video Time: {{videoTime.currentTime | shortString}} of {{videoTime.duration | shortString}} = {{videoTime.percent * 100 | shortString}}% -->
+</div>

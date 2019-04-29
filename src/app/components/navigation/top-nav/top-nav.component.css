@@ -1,0 +1,21 @@
+/* * Sidebar */
+.sidebar {
+    padding: 70px 0 0;
+}
+
+.uv-logo{
+    max-height: 53px;
+}
+
+.nav-link{
+    border-bottom: none;
+}
+
+.navbar-nav{
+    flex-direction: row;
+}
+
+a.nav-item.nav-link{
+    /* float: left; */
+    margin-right: 20px;
+}

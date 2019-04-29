@@ -1,0 +1,54 @@
+<div class="card">
+  <div class="card-header">
+    {{videoTitle}}
+    <span class="header-quick-status" *ngIf="video">
+        {{videoYardsTraveled | yardsLabel}} of {{videoYardsTotal | yardsLabel}}: {{videoYardsOut | yardsLabel}} out
+    </span>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-8 col-sm-12">
+          <video (timeupdate)="timeUpdate()" width="{{videoWidth}}" height="{{videoHeight}}" id="{{videoId}}" class="video-js vjs-default-skin uav-vjs" controls playsinline>
+            <source src="{{videoUrl}}" type="{{videoType}}">
+          </video>
+      </div>
+      <!-- <div class="col-md-4 col-sm-12">
+        <dl *ngIf="video">
+          <dt>Video</dt>
+          <dd>{{video.currentTime | shortString}} of {{video.duration | shortString}}: {{videoPercent | shortString}} %</dd>
+          <dt>View</dt>
+          <dd>{{videoYardsTraveled | yardsLabel}} of {{videoYardsTotal | yardsLabel}}: {{videoYardsOut | yardsLabel}} out</dd>
+          <dt>POIs</dt>
+          <dd>
+            <ul *ngIf="info">
+              <li *ngFor="let point of info.poi">{{point.title}} <span class="point-distance-label">{{point.gps.distance | yardsLabel}}</span></li>
+            </ul>
+          </dd>
+          <dt>Map</dt>
+          <dd>
+            <app-course-map [info]="info"></app-course-map>
+          </dd>
+        </dl>
+      </div> -->
+    </div>
+    <div class="row" *ngIf="info">
+      <div class="col-md-12">
+        <nav aria-label="...">
+          <ul class="pagination pagination-sm">
+            <li class="page-item {{i == videoYardClosestIndex?'closest-yards-out':''}}" *ngFor="let point of info.poi; index as i;" [attr.data-index]="i">
+              <a class="page-link" tabindex="-1" (click)="videoJump(i)">
+                <span class="point-distance-label">{{point.gps.distance | yardsLabel}} out</span>
+                <span class="point-distance-title">({{point.title}})</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+          <app-course-map [info]="info" (announceVideoHook)="announceVideoHookCatch($event)"></app-course-map>
+      </div>
+    </div>
+  </div>
+</div>

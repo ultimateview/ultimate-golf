@@ -1,0 +1,10 @@
+.video-time-status{
+    margin-bottom: 10px;
+}
+
+.video-time-status .progress{
+    height: 2px;
+}
+.progress-bar{
+    background-color: #62a722;
+}

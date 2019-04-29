@@ -1,0 +1,13 @@
+<nav aria-label="...">
+  <ul class="pagination pagination-sm">
+    <li class="page-item {{i == currentWaypointIndex?'closest-yards-out':''}}" *ngFor="let point of info.poi; index as i;" [attr.data-index]="i">
+      <a class="page-link" tabindex="-1" (click)="waypointJump(i)">
+        <span class="point-distance-label">{{point.gps.distance | yardsLabel}} out</span>
+        <span class="point-distance-title">({{point.name}})</span>
+      </a>
+    </li>
+    <!-- <li>
+      {{currentWaypointIndex}}
+    </li> -->
+  </ul>
+</nav>

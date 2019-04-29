@@ -1,0 +1,5 @@
+<ul class="video-timeline" *ngIf="info">
+  <li class="timeline-waypoint" *ngFor="let waypoint of info.poi; index as i" [style.left.%]="styleLeft(i)" [class.active-timeline-index]="i === videoYardsClosestIndex">
+    <span class="marker-label">{{waypoint.shortName}}</span>
+  </li>
+</ul>

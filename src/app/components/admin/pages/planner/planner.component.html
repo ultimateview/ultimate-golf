@@ -1,0 +1,56 @@
+<main role="main" class="col-md-12 ml-sm-auto col-lg-12 px-4">
+  <div class="inner-adjust">
+
+    <div class="pt-3 pb-2 mb-3 border-bottom">
+      <h1 class="h2">Planner - Admin</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <input type="file" id="fileinput" (change)="readSingleFile($event)" />
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12 planner-data">
+        <table *ngIf="bodyRows && bodyRows.length > 0" class="table tabled-striped table-bordered table-sm">
+          <thead>
+            <th scope="col">#</th>
+            <th *ngFor="let col of headerRow" scope="col">
+              {{ col }}
+            </th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of bodyRows">
+                <th scope="row">1</th>
+              <td *ngFor="let col of row">
+                {{ col }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 planner-data">
+        <table *ngIf="bodyRows && bodyRows.length > 0" class="table tabled-striped table-bordered table-sm">
+          <thead>
+            <th scope="col">#</th>
+            <th *ngFor="let col of headerRow" scope="col">
+              {{ col }}
+            </th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let row of adjustedRows">
+              <th scope="row">1</th>
+              <td *ngFor="let col of row">
+                {{ col }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</main>

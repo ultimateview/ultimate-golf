@@ -1,0 +1,15 @@
+.page-item .point-distance-title{
+    font-size: 10px;
+    color: gray;
+    margin-left: 5px;
+    white-space: nowrap;
+}
+
+.page-item .point-distance-label{
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.page-item.closest-yards-out{
+    text-decoration: underline;
+}
