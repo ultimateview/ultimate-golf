@@ -52,6 +52,41 @@ export class PointOfInterestObject {
         }
     }
 }
+export class VideoTimeReadable {
+    private _min: number;
+    public get min(): number {
+        return this._min;
+    }
+    public set min(v: number) {
+        this._min = v;
+    }
+
+    private _sec: number;
+    public get sec(): number {
+        return this._sec;
+    }
+    public set sec(v: number) {
+        this._sec = v;
+    }
+    constructor() {}
+}
+
+export class HoleVideoObject {
+    id: string;
+    start: number;
+    end: number;
+    yaw: number;
+    pitch: number;
+    roll: number;
+
+    constructor(videoId: string, videoStartTime: number, videoEndTime: number) {
+        this.id = videoId;
+        this.start = videoStartTime;
+        this.end = videoEndTime;
+        this.yaw = this.pitch = this.roll = 0;
+    }
+
+}
 
 export class HoleObject {
     name: string;
@@ -59,6 +94,7 @@ export class HoleObject {
     distance: DistanceObject;
     totalDistanceAlongPath: number;
     poi: Array<PointOfInterestObject>;
+    videoInfo: HoleVideoObject;
 
     private _utils: UtilsService;
 
@@ -167,8 +203,10 @@ export class GolfCourseObject {
 export class Master {
     planet: PlanetObject;
     courseList: Array<GolfCourseObject>;
+    private _utils: UtilsService;
 
     constructor() {
+        this._utils = new UtilsService();
         this.planet = new PlanetObject('Earth');
 
         const c = this.planet.addCountry('United States of America', 'USA');
@@ -192,6 +230,9 @@ export class Master {
         hole.addPoi( 'Fairway 5', '100', { lat: 45.084239, lng: -93.095752, distance: 0, distanceAlongPath: 0 } );
         hole.addPoi( 'Center Green', 'Green', { lat: 45.084291, lng: -93.095573, distance: 0, distanceAlongPath: 0 } );
         hole.addPoi( 'Pin', 'Pin', { lat: 45.084302, lng: -93.095467, distance: 0, distanceAlongPath: 0 } );
+        hole.videoInfo = new HoleVideoObject('rfyzaaDcqMQ',
+                                            this._utils.timeAsSeconds(0, 0, 42),
+                                            this._utils.timeAsSeconds(0, 1, 41));
         gc.addHole(hole);
 
         hole = new HoleObject('2nd Hole');
@@ -201,6 +242,9 @@ export class Master {
         hole.addPoi( 'Fairway 2', '250', { lat: 45.083914, lng: -93.098498, distance: 0, distanceAlongPath: 0 } );
         hole.addPoi( 'Center Green', 'Green', { lat: 45.084291, lng: -93.095573, distance: 0, distanceAlongPath: 0 } );
         hole.addPoi( 'Pin', 'Pin', { lat: 45.084302, lng: -93.095467, distance: 0, distanceAlongPath: 0 } );
+        hole.videoInfo = new HoleVideoObject('rfyzaaDcqMQ',
+                                            this._utils.timeAsSeconds(0, 1, 47),
+                                            this._utils.timeAsSeconds(0, 2, 41));
         gc.addHole(hole);
 
         hole = new HoleObject('3rd Hole');
@@ -209,6 +253,9 @@ export class Master {
         hole.addPoi( 'Fairway 4', '150', { lat: 45.084159, lng: -93.096433, distance: 0, distanceAlongPath: 0 } );
         hole.addPoi( 'Fairway 5', '100', { lat: 45.084239, lng: -93.095752, distance: 0, distanceAlongPath: 0 } );
         hole.addPoi( 'Pin', 'Pin', { lat: 45.084302, lng: -93.095467, distance: 0, distanceAlongPath: 0 } );
+        hole.videoInfo = new HoleVideoObject('rfyzaaDcqMQ',
+                                            this._utils.timeAsSeconds(0, 2, 45),
+                                            this._utils.timeAsSeconds(0, 3, 25));
         gc.addHole(hole);
 
         c.addCourse(gc);

@@ -8,6 +8,9 @@ export class UtilsService {
 
   constructor() { }
 
+  timeAsSeconds(hours: number, minutes: number, seconds: number) {
+    return (hours * 360) + (minutes * 60) + seconds;
+  }
   yardsBetweenPoints(start: IUavPositionModel, end: IUavPositionModel) {
     const earthRadiusKm = 6371;
     const dLat = this.degreesToRadians(end.lat - start.lat);

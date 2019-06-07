@@ -23,10 +23,10 @@ export class CourseMapComponent implements OnInit {
 
   constructor() { }
 
-  // onVideoJump(e) {
-  //   console.log('CourseMap Component caught videoJump event: ');
-  //   console.log(e);
-  // }
+  onVideoJump(e) {
+    console.log('CourseMap Component caught videoJump event: ');
+    console.log(e);
+  }
   centerOnMarker(idx: number) {
     console.log('Center course-map on location index: ' + idx);
     // console.log(this.mapRef);

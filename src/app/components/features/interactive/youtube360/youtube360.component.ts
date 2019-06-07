@@ -143,6 +143,11 @@ export class Youtube360Component implements OnInit {
       status: 'ready'
     };
 
+    const sp = this.player.getSphericalProperties();
+    if (sp && sp.fov) {
+      console.log(sp);
+    }
+
     switch (event.data) {
       case window['YT'].PlayerState.PLAYING:
         if (this.cleanTime() === 0) {
